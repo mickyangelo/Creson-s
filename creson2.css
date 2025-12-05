@@ -1,0 +1,640 @@
+      /* --- GLOBAL RESETS & FONTS --- */
+      body {
+        margin: 0px;
+        font-family: 'Circular', sans-serif; 
+        color: rgb(74, 74, 75);
+        
+        /* --- NEW BACKGROUND FOR ALL TABS --- */
+        /* This places a light white tint over the image to ensure text is readable. */
+        background-image: 
+          linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.85)),
+          url('images/pngtree-elegant-floral-texture-wedding-invitation-background-picture-image_16038605.jpg'); /* REPLACE THIS PATH */
+          
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Keeps image still while scrolling (Classy effect) */
+        background-repeat: no-repeat;
+      }
+
+      /* Note: Ensure you have your @font-face rules here if Sauvage/Circular are local fonts. 
+         I am simulating them with fallbacks for the preview. */
+      
+      @font-face {
+        font-family: 'Sauvage';
+        src: url('fonts/Sauvage.otf'); /* Example path */
+      }
+      
+      /* --- HEADER STYLES --- */
+      .Header{
+        font-family: 'Sauvage', serif;
+        display: flex;
+        width: 100%;
+        height: auto;
+        min-height: 140px;
+        flex-direction: column;
+        background-color: rgb(245, 239, 232);
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+      }
+
+      .CandT {
+        display: flex;
+        text-align: center;
+        color: rgb(74, 74, 75);
+        font-weight: 400; 
+        text-transform: uppercase; 
+        line-height: 1.5; 
+        letter-spacing: 2px; /* Increased for elegance */
+        font-size: 42px;
+        margin-bottom: 15px;
+      }
+
+      .menus {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 700px;
+        align-items: center;
+        gap: 20px; /* Space between items */
+        font-family: 'Circular', sans-serif; 
+        color: rgb(74, 74, 75); 
+        font-weight: 400; 
+        text-transform: uppercase; 
+        font-size: 14px; /* Slightly smaller for a cleaner look */
+        letter-spacing: 1px;
+      }
+
+      .tabs {
+        cursor: pointer;
+        padding: 5px 10px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .tabs:hover {
+        color: rgb(169, 157, 31);
+      }
+
+      .tabs.active {
+        color: rgb(169, 157, 31);
+        font-weight: bold;
+      }
+      
+      /* Active underline effect */
+      .tabs.active::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: rgb(169, 157, 31);
+        margin-top: 4px;
+      }
+
+      /* --- CONTENT AREAS --- */
+
+      .content {
+        padding: 0;
+        width: 100%;
+        max-width: none;
+        /*
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: 0 auto;*/
+      }
+
+      .tab-content {
+
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: none; /* Keeps hidden tabs hidden */
+        animation: fadeIn 0.8s ease;
+        /*
+        display: none;
+        animation: fadeIn 0.8s ease;*/
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* --- HOME TAB --- */
+      #home {
+
+        /* Override default padding so image hits the edges */
+        padding: 0;
+        max-width: none;
+        width: 100%;
+        
+        /* Make it tall enough to look nice on screen */
+        min-height: 120vh; 
+        
+        /* --- BACKGROUND IMAGE SETTINGS --- */
+        /* The linear-gradient adds a white see-through layer (0.7 opacity) on top. 
+          Replace the URL below with your actual image file path. */
+        background-image: 
+          linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.7)),
+          url('images/Image for the Gallery tab/IMG 3.jpg'); 
+          
+        background-size: cover;     /* Ensures image covers the whole area */
+        background-position: center; /* Centers the image */
+        background-repeat: no-repeat;
+              /*
+              text-align: center;
+              padding: 50px 0;*/
+              
+      }
+
+      /* 5. Center the text specifically on the Home tab */
+      #home.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Vertical Center */
+        align-items: center;     /* Horizontal Center */
+      }
+
+
+      .big-words {
+        font-family: 'Sauvage', serif;
+        font-size: 80px;
+        margin: 0;
+        color: rgb(169, 157, 31);
+      }
+      .smaller-words {
+        font-family: 'Sauvage', serif;
+        font-size: 40px;
+        margin: -10px 0 10px 0;
+        font-style: italic;
+      }
+
+
+
+/* --- STORY TAB STYLES --- */
+
+/* 1. Main Wrapper to center everything */
+.story-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* 2. The Card Container */
+.story-card {
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 4px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.06); /* Soft elegant shadow */
+  margin-bottom: 0;
+  position: relative;
+  border-left: 3px solid rgb(169, 157, 31); /* Gold accent on left */
+}
+
+/* 3. Typography for Headers */
+.story-role {
+  display: block;
+  font-family: 'Circular', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.story-header h3 {
+  font-family: 'Sauvage', serif; /* Using your custom font */
+  font-size: 32px;
+  color: rgb(74, 74, 75);
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+/* 4. The Body Text - Beautiful Italics */
+.story-body p {
+  font-family: 'Times New Roman', serif; /* Classic serif looks best for romance */
+  font-size: 19px;
+  line-height: 1.8;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* 5. Highlighted quotes */
+.highlight-text {
+  color: rgb(169, 157, 31);
+  font-weight: bold;
+}
+
+/* 6. Special Love Note at the end */
+.love-note {
+  font-weight: bold;
+  color: rgb(74, 74, 75) !important;
+}
+
+.signature {
+  text-align: right;
+  font-family: 'Sauvage', serif;
+  font-size: 20px;
+  color: rgb(169, 157, 31) !important;
+  margin-top: 10px;
+}
+
+/* 7. Divider between stories */
+.story-divider {
+  text-align: center;
+  font-family: 'Sauvage', serif;
+  font-size: 40px;
+  color: rgb(210, 210, 210);
+  margin: 30px 0;
+}
+
+/* 8. Groom Card Variation (Align Right) */
+.groom-card {
+  border-left: none;
+  border-right: 3px solid rgb(169, 157, 31); /* Gold accent on right */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .story-card {
+    padding: 30px 20px;
+  }
+  .story-body p {
+    font-size: 17px;
+  }
+}
+
+
+
+
+
+      /* --- WEDDING PARTY --- */
+      .wedding-party-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        gap: 40px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .column-title {
+        font-family: 'Sauvage', serif;
+        font-size: 45px;
+        color: rgb(169, 157, 31);
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        width: 100%;
+        grid-column: 1 / -1; /* Span full width */
+      }
+
+      .person-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+
+      .person-card :hover {
+        cursor: pointer;
+        box-shadow: 10px 10px 10px rgb(42, 39, 39, 0.4);
+      }
+
+      .circle-photo {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-color: #eee;
+        overflow: hidden;
+        margin-bottom: 15px;
+        border: 2px solid rgb(245, 239, 232);
+      }
+
+      
+      .circle-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .circle-photo img :hover{
+        transform: scale(1.1);
+      }
+
+      .person-name {
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+
+
+
+/* --- SCHEDULE & COUNTDOWN STYLES --- */
+
+/* Countdown Wrapper */
+#countdown-wrapper {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+}
+
+#countdown-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-block span {
+  font-family: 'Sauvage', serif;
+  font-size: 50px;
+  color: rgb(169, 157, 31); /* Gold */
+  line-height: 1;
+}
+
+.time-block label {
+  font-family: 'Circular', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  margin-top: 5px;
+}
+
+.separator {
+  font-family: 'Sauvage', serif;
+  font-size: 40px;
+  color: #ddd;
+  margin-top: -20px;
+}
+
+/* Wedding Day Message */
+#wedding-day-message {
+  font-family: 'Sauvage', serif;
+  font-size: 60px;
+  color: rgb(169, 157, 31);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Schedule Timeline */
+.schedule-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.schedule-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.schedule-card:hover {
+  transform: translateY(-5px);
+}
+
+.highlight-event {
+  border: 2px solid rgb(169, 157, 31); /* Highlight White Wedding */
+  background-color: #fdfdf5;
+}
+
+.date-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  padding-right: 25px;
+  border-right: 1px solid #eee;
+  margin-right: 25px;
+  color: rgb(169, 157, 31);
+}
+
+.day-name { font-size: 14px; text-transform: uppercase; }
+.day-num { font-family: 'Sauvage', serif; font-size: 45px; line-height: 1; }
+.month { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; }
+
+.event-details h3 {
+  font-family: 'Sauvage', serif;
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  color: rgb(74, 74, 75);
+}
+
+.event-details p {
+  font-family: 'Circular', sans-serif;
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 15px 0;
+}
+
+.time-location {
+  font-size: 13px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Let clicks pass through */
+  z-index: 9999;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .schedule-card { flex-direction: column; text-align: center; }
+  .date-badge { border-right: none; border-bottom: 1px solid #eee; padding-right: 0; margin-right: 0; padding-bottom: 15px; margin-bottom: 15px; width: 100%; }
+  #countdown-timer { gap: 10px; }
+  .time-block span { font-size: 30px; }
+  .separator { font-size: 25px; }
+}
+
+
+
+      /* --- THINGS TO DO (NEW SECTION) --- */
+      
+      .things-intro {
+        text-align: center;
+        margin-bottom: 60px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .things-intro h2 {
+        font-family: 'Sauvage', serif;
+        font-size: 50px;
+        color: rgb(169, 157, 31);
+        margin-bottom: 20px;
+      }
+      
+      .things-intro p {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #666;
+      }
+
+      .destination-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 80px;
+        gap: 60px;
+      }
+
+      /* Alternate Layout: Even rows reverse the order */
+      .destination-row:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .dest-image-wrapper {
+        flex: 1;
+        overflow: hidden;
+        border-radius: 8px; /* Soft edges */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        position: relative;
+        height: 400px;
+      }
+
+      .dest-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s ease;
+      }
+
+      /* Gentle Zoom on Hover */
+      .dest-image-wrapper:hover img {
+        transform: scale(1.05);
+      }
+
+      .dest-info {
+        flex: 1;
+        padding: 20px;
+      }
+
+      .dest-title {
+        font-family: 'Sauvage', serif;
+        font-size: 38px;
+        color: rgb(74, 74, 75);
+        margin-top: 0;
+        margin-bottom: 20px;
+        position: relative;
+      }
+      
+      /* Decorative line under titles */
+      .dest-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background-color: rgb(169, 157, 31);
+        margin-top: 15px;
+      }
+
+      .dest-desc {
+        font-size: 17px;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .dest-address {
+        font-size: 14px;
+        color: #888;
+        font-style: italic;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .dest-address span {
+         color: rgb(169, 157, 31);
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .Header { height: auto; padding: 20px 0; }
+        .menus { flex-direction: column; align-items: center; width: auto; gap: 10px; }
+        .CandT { font-size: 32px; }
+        
+        .destination-row, .destination-row:nth-child(even) {
+          flex-direction: column;
+          gap: 30px;
+          margin-bottom: 60px;
+        }
+        
+        .dest-image-wrapper {
+          width: 100%;
+          height: 300px;
+        }
+        
+        .dest-info { padding: 0; text-align: center; }
+        .dest-title::after { margin: 15px auto; }
+        .dest-address { justify-content: center; }
+        
+        .big-words { font-size: 50px; }
+        .smaller-words { font-size: 30px; }
+      }
+
+      /*Gallery section*/
+
+      .tab-content-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+
+      .tab-content-gallery-pics {
+        width: 20%;
+        margin: 10px 10px 30px 10px;
+        box-shadow: 10px 10px 10px rgb(59, 55, 55);
+        transition: box-shadow 1.8s ease-in-out;
+      }
+
+      
+      .tab-content-gallery-pics :hover{
+        box-shadow: 10px 10px 10px rgb(243, 241, 241, 0.5);
+        cursor: pointer;
+      }
+
+
+      .gallery-img {
+        width: 100%;
+        height: 100%;
+      }
