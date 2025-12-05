@@ -50,6 +50,7 @@
         letter-spacing: 2px; /* Increased for elegance */
         font-size: 42px;
         margin-bottom: 15px;
+        align-items: center;
       }
 
       .menus {
@@ -58,6 +59,7 @@
         width: 100%;
         max-width: 700px;
         align-items: center;
+        justify-content: center;
         gap: 20px; /* Space between items */
         font-family: 'Circular', sans-serif; 
         color: rgb(74, 74, 75); 
@@ -141,7 +143,7 @@
         /* The linear-gradient adds a white see-through layer (0.7 opacity) on top. 
           Replace the URL below with your actual image file path. */
         background-image: 
-          linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.7)),
+          linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
           url('images/Image for the Gallery tab/IMG 3.jpg'); 
           
         background-size: cover;     /* Ensures image covers the whole area */
