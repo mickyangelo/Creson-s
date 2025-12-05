@@ -32,62 +32,67 @@
 
       /* --- COUNTDOWN & CONFETTI LOGIC --- */
 
-// 1. Set the date we're counting down to
+/* --- UPDATED COUNTDOWN & CONFETTI LOGIC --- */
+
 const weddingDate = new Date("December 20, 2025 00:00:00").getTime();
 
-// 2. Countdown Function
-function updateCountdown() {
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
-
-  const countdownTimer = document.getElementById("countdown-timer");
-  const weddingMessage = document.getElementById("wedding-day-message");
+// Helper function to update a specific set of IDs
+function updateTimerUI(prefix, days, hours, minutes, seconds, isWeddingDay, isOver) {
+  const timer = document.getElementById(prefix + "countdown-timer");
+  const message = document.getElementById(prefix + "wedding-day-message");
+  const wrapper = document.getElementById(prefix + "countdown-wrapper");
   
-  // Elements
-  const d = document.getElementById("days");
-  const h = document.getElementById("hours");
-  const m = document.getElementById("minutes");
-  const s = document.getElementById("seconds");
+  const d = document.getElementById(prefix + "days");
+  const h = document.getElementById(prefix + "hours");
+  const m = document.getElementById(prefix + "minutes");
+  const s = document.getElementById(prefix + "seconds");
 
-  if (!d || !h || !m || !s) return; // Safety check
-
-  // Check if it's the wedding day (24 hour window)
-  const isWeddingDay = distance <= 0 && distance > -86400000;
-  // Check if wedding is over
-  const isOver = distance <= -86400000;
+  if (!d) return; // Skip if element not found
 
   if (isWeddingDay) {
-    countdownTimer.style.display = "none";
-    weddingMessage.style.display = "block";
-    return "WEDDING_DAY";
+    if(timer) timer.style.display = "none";
+    if(message) message.style.display = "block";
   } else if (isOver) {
-    // Hide everything after the date
-    document.getElementById("countdown-wrapper").style.display = "none";
-    return "OVER";
+    if(wrapper) wrapper.style.display = "none";
   } else {
-    // Show Countdown
-    countdownTimer.style.display = "flex";
-    weddingMessage.style.display = "none";
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
+    if(timer) timer.style.display = "flex";
+    if(message) message.style.display = "none";
+    
     d.innerHTML = days < 10 ? "0" + days : days;
     h.innerHTML = hours < 10 ? "0" + hours : hours;
     m.innerHTML = minutes < 10 ? "0" + minutes : minutes;
     s.innerHTML = seconds < 10 ? "0" + seconds : seconds;
-    
-    return "COUNTING";
   }
 }
 
-// Update every second
-setInterval(updateCountdown, 1000);
-updateCountdown(); // Run immediately
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
 
-// 3. Confetti Logic
+  const isWeddingDay = distance <= 0 && distance > -86400000;
+  const isOver = distance <= -86400000;
+  
+  // Calculate time components
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Update Schedule Tab Timer (IDs: days, hours...)
+  updateTimerUI("", days, hours, minutes, seconds, isWeddingDay, isOver);
+
+  // Update Home Tab Timer (IDs: home-days, home-hours...)
+  updateTimerUI("home-", days, hours, minutes, seconds, isWeddingDay, isOver);
+
+  if (isWeddingDay) return "WEDDING_DAY";
+  return "COUNTING";
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown(); 
+
+
+// --- CONFETTI LOGIC ---
 const canvas = document.getElementById('confetti-canvas');
 const ctx = canvas ? canvas.getContext('2d') : null;
 let confettiParticles = [];
@@ -106,7 +111,7 @@ function createConfetti() {
   for (let i = 0; i < 100; i++) {
     confettiParticles.push({
       x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height - canvas.height, // Start above screen
+      y: Math.random() * canvas.height - canvas.height, 
       w: Math.random() * 10 + 5,
       h: Math.random() * 5 + 5,
       color: colors[Math.floor(Math.random() * colors.length)],
@@ -132,7 +137,6 @@ function drawConfetti() {
     p.y += p.speed;
     p.angle += p.rotationSpeed;
     
-    // Remove if off screen
     if (p.y > canvas.height) {
       confettiParticles.splice(index, 1);
     }
@@ -149,17 +153,24 @@ function popConfetti() {
   drawConfetti();
 }
 
-// 4. Hook into Schedule Tab Click
-// Find the schedule tab text and add listener
+// Check on Tab Clicks (Home OR Schedule)
 const allTabs = document.querySelectorAll(".tabs");
 allTabs.forEach(tab => {
-  if (tab.innerText.trim() === "Schedule") {
-    tab.addEventListener("click", () => {
-      // Check status directly
+  tab.addEventListener("click", () => {
+    const tabName = tab.innerText.trim();
+    if (tabName === "Schedule" || tabName === "Home") {
       const status = updateCountdown();
       if (status === "WEDDING_DAY") {
         popConfetti();
       }
-    });
+    }
+  });
+});
+
+// Check on Load (Since Home is default)
+window.addEventListener('load', () => {
+  const status = updateCountdown();
+  if (status === "WEDDING_DAY") {
+    popConfetti();
   }
 });

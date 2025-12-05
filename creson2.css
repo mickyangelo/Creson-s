@@ -42,15 +42,22 @@
 
       .CandT {
         display: flex;
+        flex-direction: column;
         text-align: center;
         color: rgb(74, 74, 75);
         font-weight: 400; 
-        text-transform: uppercase; 
-        line-height: 1.5; 
-        letter-spacing: 2px; /* Increased for elegance */
+        line-height: 0.6; 
+        letter-spacing: 1px; /* Increased for elegance */
         font-size: 42px;
         margin-bottom: 15px;
         align-items: center;
+      }
+
+      .here-forever {
+        font-family: "Tangerine", cursive;
+        font-weight: 900;
+        font-size: 40px;
+        font-style: normal;
       }
 
       .menus {
@@ -165,10 +172,14 @@
 
 
       .big-words {
-        font-family: 'Sauvage', serif;
+        
         font-size: 80px;
         margin: 0;
         color: rgb(169, 157, 31);
+        font-family: "Tangerine", cursive;
+        font-weight: 700;
+        font-style: normal;
+
       }
       .smaller-words {
         font-family: 'Sauvage', serif;

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="creson2.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="creson2.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creda & Thompson 2025</title>
   </head>
   <body>
@@ -10,7 +13,8 @@
     <!-- HEADER -->
     <div class="Header">
       <div class="CandT">
-        CREDA & THOMPSON
+        CT 2025
+        <p class="here-forever" >#here is to forever</p>
       </div>
 
       <div class="menus">
@@ -36,7 +40,37 @@
         <p class="big-words">THOMPSON</p>
         <br>
         <p style="font-size: 20px; letter-spacing: 2px; text-transform: uppercase;">Are Getting Married</p>
-        <p style="margin-top: 30px; font-style: italic; color: #242323;">December 2025 • Benin City, Nigeria</p>
+        <p style="margin-top: 30px; margin-bottom: 30px; font-style: italic; color: #242323;">December 20th 2025 • Benin City, Nigeria</p>
+
+<!-- Countdown homepage -->
+<div id="home-countdown-wrapper">
+   <div id="home-countdown-timer">
+     <div class="time-block">
+       <span id="home-days">00</span>
+       <label>Days</label>
+     </div>
+     <div class="separator">:</div>
+     <div class="time-block">
+       <span id="home-hours">00</span>
+       <label>Hours</label>
+     </div>
+     <div class="separator">:</div>
+     <div class="time-block">
+       <span id="home-minutes">00</span>
+       <label>Minutes</label>
+     </div>
+     <div class="separator">:</div>
+     <div class="time-block">
+       <span id="home-seconds">00</span>
+       <label>Seconds</label>
+     </div>
+   </div>
+   
+   <div id="home-wedding-day-message" style="display: none;">
+     The day is finally here!
+   </div>
+</div>
+
       </div>
 
       <!-- STORY TAB -->
@@ -156,6 +190,17 @@
           </div>
 
 
+          <div class="person-card">
+            <div class="circle-photo"><img src="images/Loveth.jpg" onerror="this.src='https://placehold.co/200x200?text=Aisha'"></div>
+            <div class="person-name">Loveth</div>
+          </div>
+          
+          
+          <div class="person-card">
+            <div class="circle-photo"><img src="images/Janet.jpg" onerror="this.src='https://placehold.co/200x200?text=Aisha'"></div>
+            <div class="person-name">Janet</div>
+          </div>          
+
           <div class="column-title" style="margin-top: 50px;">Groomsmen</div>
           
           <div class="person-card">
@@ -225,17 +270,33 @@
         </div>
 
         <div class="tab-content-gallery-pics">
-          <img class="gallery-img" src="images/Image for the Gallery tab/IMG 7.jpg">
-        </div>
-
-        <div class="tab-content-gallery-pics">
           <img class="gallery-img" src="images/Image for the Gallery tab/IMG 8.jpg">
         </div>
 
         <div class="tab-content-gallery-pics">
           <img class="gallery-img" src="images/Image for the Gallery tab/IMG 9.jpg">
         </div>
+
+        <div class="tab-content-gallery-pics">
+          <img class="gallery-img" src="images/Image for the Gallery tab/IMG 12.jpg">
+        </div>
+
+        <div class="tab-content-gallery-pics">
+          <img class="gallery-img" src="images/Image for the Gallery tab/IMG 13.jpg">
+        </div>
         
+        <div class="tab-content-gallery-pics">
+          <img class="gallery-img" src="images/Image for the Gallery tab/IMG 14.jpg">
+        </div>
+        
+        <div class="tab-content-gallery-pics">
+          <img class="gallery-img" src="images/Image for the Gallery tab/IMG 15.jpg">
+        </div>  
+        
+        <div class="tab-content-gallery-pics">
+          <img class="gallery-img" src="images/Image for the Gallery tab/IMG 16.jpg">
+        </div>        
+
 
 
         </div> 
@@ -290,7 +351,7 @@
               <div class="event-details">
                 <h3>Traditional Wedding</h3>
                 <p>A celebration of our heritage and culture.</p>
-                <div class="time-location">Time: 12:00 PM &bull; Venue: Bride's Residence</div>
+                <div class="time-location">Venue: Bride's Father's Residence</div>
               </div>
             </div>
 
@@ -304,7 +365,7 @@
               <div class="event-details">
                 <h3>White Wedding</h3>
                 <p>Join us as we exchange our vows.</p>
-                <div class="time-location">Time: 10:00 AM &bull; Venue: Main Church Hall</div>
+                <div class="time-location">Venue: Main Church Hall</div>
               </div>
             </div>
 
@@ -318,15 +379,13 @@
               <div class="event-details">
                 <h3>Thanksgiving</h3>
                 <p>Giving thanks for a successful celebration.</p>
-                <div class="time-location">Time: 9:00 AM &bull; Venue: Main Church Hall</div>
+                <div class="time-location">Venue: Main Church Hall</div>
               </div>
             </div>
 
           </div>
         </div>
         
-        <!-- Canvas for Confetti -->
-        <canvas id="confetti-canvas"></canvas>
       </div>
 
       <!-- THINGS TO DO TAB (NEW CONTENT) -->
@@ -394,7 +453,7 @@
           <div class="dest-info">
             <h3 class="dest-title">Ogba Zoo & Nature Park</h3>
             <p class="dest-desc">
-              For a breath of fresh air, escape to the Ogba Zoo. It is one of the few natural reserves in an urban setting, featuring a mix of rich wildlife—including lions, chimpanzees, and giant tortoises—and serene bamboo landscapes. It is a lovely spot for a quiet afternoon walk or a picnic before the wedding festivities begin.
+              For a breath of fresh air, escape to the Ogba Zoo. It is one of the few natural reserves in an urban setting, featuring a mix of rich wildlife including lions, chimpanzees, and giant tortoises and serene bamboo landscapes. It is a lovely spot for a quiet afternoon walk or a picnic before the wedding festivities begin.
             </p>
             <div class="dest-address">
               <span>&#9679;</span> Airport Road, Ogba, Benin City
@@ -402,12 +461,81 @@
           </div>
         </div>
 
+
+        <!-- 4. Ogba Zoo -->
+        <div class="destination-row">
+          <div class="dest-image-wrapper">
+            <img src="images/Signature.jpg" alt="Ogba Zoo">
+          </div>
+          <div class="dest-info">
+            <h3 class="dest-title">The Signature Apartments</h3>
+            <p class="dest-desc">
+            Offers various suite categories, including furnished two-bedroom apartments.
+             Features a restaurant and a bar/lounge on-site. Complimentary breakfast for two is available with some bookings.
+            Includes a swimming pool and a rooftop lounge.
+             Provides 24/7 power supply, free Wi-Fi, 24/7. Security, room service, and housekeeping.
+            Suites are equipped with smart TVs, air conditioning, and a fully equipped kitchen with a large dining set. Some units also feature a balcony or terrace.
+           The property is considered family-friendly and good for kids.
+            There is a wheelchair-accessible entrance.
+            </p>
+            <div class="dest-address">
+              <span>&#9679;</span> 5 Evboriaria Layout Road, Oka, Benin City
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 4. Ogba Zoo -->
+        <div class="destination-row">
+          <div class="dest-image-wrapper">
+            <img src="images/Kada cinema.jpeg" alt="Ogba Zoo">
+          </div>
+          <div class="dest-info">
+            <h3 class="dest-title">Kada Cinemas</h3>
+            <p class="dest-desc">
+              Kada Cinemas is a prominent cinema and family entertainment center located in Benin City. It offers a variety of entertainment options in addition to showing the latest local and international movies.
+              Auditoriums are designed to international standards with excellent acoustics, high-definition projection, and Dolby surround sound. Located within Kada Plaza, it features an arcade/play area (Arcade Play Time), restaurants (like Kung Fu Chinese Restaurants and Zozo Cafe), a sport bar, and various shops.
+              The center offers a wheelchair-accessible entrance, parking lot, and restroom. You can order snacks and drinks online in advance to skip the queue.            </p>
+            <div class="dest-address">
+              <span>&#9679;</span> 111 Sapele Road, Benin City
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- 4. Ogba Zoo -->
+        <div class="destination-row">
+          <div class="dest-image-wrapper">
+            <img src="images/Shoprite benin.jpeg" alt="Ogba Zoo">
+          </div>
+          <div class="dest-info">
+            <h3 class="dest-title">Benin City Shoprite</h3>
+            <p class="dest-desc">
+              The Benin City Mall, where Shoprite is the anchor tenant, provides a comprehensive shopping experience with several other businesses and amenities.
+              Shoprite, which sells a wide range of groceries, fresh produce, household items, and small appliances. Creamtown; Offers ice cream and desserts. Tiffany's Brunch Place; A spot for brunch and meals.
+              Eateries and lounges with various kinds of dishes are available. Other Services and Amenities includes A pharmacy, Salons for both male and female clients, Shops for phones and accessories, Boutiques and household furniture stores.
+              Entertainment centers, including a playground and a movie theater (cinema), A digital library, Wheelchair accessible entrance, parking lot, and restrooms. 
+              The mall is a modern shopping destination that aims to offer convenience and variety to residents and visitors of Benin City.
+            </p>
+            <div class="dest-address">
+              <span>&#9679;</span> 18 Central Rd, Benin Sapele Road
+            </div>
+          </div>
+        </div>        
+
+
+
+        
       </div>
 
     </div>
 
+     <!-- Canvas for Confetti -->
+        <canvas id="confetti-canvas"></canvas>
     <!-- JAVASCRIPT -->
     <script src="creson2.js">
     </script>
+
   </body>
 </html>
