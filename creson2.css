@@ -188,6 +188,7 @@
         font-style: italic;
       }
 
+    
 
 
 /* --- STORY TAB STYLES --- */
@@ -375,7 +376,7 @@
 .time-block span {
   font-family: 'Sauvage', serif;
   font-size: 50px;
-  color: rgb(169, 157, 31); /* Gold */
+  color: rgb(119, 111, 19); /* Gold */
   line-height: 1;
 }
 
@@ -384,14 +385,14 @@
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #888;
+  color: #100f0f;
   margin-top: 5px;
 }
 
 .separator {
   font-family: 'Sauvage', serif;
-  font-size: 40px;
-  color: #ddd;
+  font-size: 42px;
+  color: #433f3f;
 }
 
 /* Wedding Day Message */
@@ -467,6 +468,8 @@
 }
 
 .time-location {
+  display: flex;
+  flex-direction: column;
   font-size: 13px;
   font-weight: bold;
   color: #999;
@@ -654,3 +657,5 @@
         .tab-content-gallery { flex-direction: column; align-items: center; width: auto; gap: 10px; }
         .tab-content-gallery-pics {width: 80%; height: 100%;}
       }
+
+
